@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - Research Management System</title>
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/user_page.css' %}">  <!-- Link to your CSS file -->
+</head>
+<body>
+    <header>
+        <h1>Users Management</h1>
+        <nav>
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Research Data</a></li>
+                <li><a href="">Reports</a></li>
+                <li><a href="">Users</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Manage Users</h2>
+            <p>Here you can view and manage users of the Research Management System.</p>
+            <button class="create-user-btn" onclick="location.href=''">Create User</button> <!-- Create User Button -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example user data -->
+                    <tr>
+                        <td>1</td>
+                        <td>Jane Doe</td>
+                        <td>jane.doe@example.com</td>
+                        <td>Researcher</td>
+                        <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>John Smith</td>
+                        <td>john.smith@example.com</td>
+                        <td>Admin</td>
+                        <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 20

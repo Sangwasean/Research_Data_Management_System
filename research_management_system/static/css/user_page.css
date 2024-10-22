@@ -1,0 +1,136 @@
+/* user_page.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Flexbox for horizontal alignment */
+    justify-content: center; /* Center the nav items */
+}
+
+nav ul li {
+    margin: 0 15px; /* Space between nav items */
+}
+
+nav a {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+main {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px; /* Limit the width of the main content */
+    padding: 20px; /* Padding for main content */
+    background-color: white; /* White background for main section */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+h2 {
+    color: #333; /* Dark grey text */
+}
+
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Merge table borders */
+    margin: 20px 0; /* Space around table */
+}
+
+th, td {
+    padding: 12px; /* Padding inside cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Light grey border */
+}
+
+th {
+    background-color: #4CAF50; /* Green background for header */
+    color: white; /* White text */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Light grey background on hover */
+}
+
+a {
+    color: #4CAF50; /* Green text */
+    text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+footer {
+    background: #333; /* Dark grey background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Position footer */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Styles for the create user form */
+form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    margin-top: 20px; /* Space above the form */
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding inside inputs */
+    margin: 10px 0; /* Space around inputs */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 4px; /* Rounded corners */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.create-user-btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 0; /* Space around button */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.create-user-btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.alert {
+    background-color: #ffdddd; /* Light red background */
+    color: #d8000c; /* Dark red text */
+    padding: 10px;
+    margin: 20px 0;
+    border: 1px solid #d8000c; /* Dark red border */
+    border-radius: 5px; /* Rounded corners */
+}

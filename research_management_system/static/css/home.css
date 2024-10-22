@@ -1,0 +1,74 @@
+/* styles.css */
+
+html, body {
+    height: 100%; /* Ensure the body takes up full height */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex; /* Use Flexbox */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+header {
+    background: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline; /* Inline list items */
+    margin: 0 15px;
+}
+
+nav a {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+main {
+    text-align: center;
+    flex: 1; /* Allow main to take remaining space */
+    display: flex; /* Use Flexbox in main */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+}
+
+h2 {
+    color: #333; /* Dark grey text */
+}
+
+button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+footer {
+    background: #333; /* Dark grey background */
+    color: white; /* White text */
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
