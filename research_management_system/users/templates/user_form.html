@@ -23,6 +23,15 @@
         <form method="POST" action="{% url 'create_user' %}">
     {% csrf_token %}
     {{ form.non_field_errors }}
+            {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{% if message.tags %}{{ message.tags }}{% endif %}">
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
     <div>
         <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
@@ -51,7 +60,7 @@
     </div>
 
     <button type="submit" class="create-user-btn">{% if form.instance.pk %}Update{% else %}Register{% endif %} User</button>
-            <a href="{% url 'login' %}">Already have an account</a>
+            <a href="http://127.0.0.1:8000/accounts/login/">Already have an account</a>
 </form>
 
     </main>

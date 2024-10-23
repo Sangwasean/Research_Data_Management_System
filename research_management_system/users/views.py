@@ -6,9 +6,6 @@ from .models import CustomUser
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-def user_view(request):
-    users = CustomUser.objects.all()
-    return render(request, 'index.html', {'users': users})
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -17,6 +14,40 @@ class UserForm(forms.ModelForm):
         widgets = {
             'password': forms.PasswordInput(),
         }
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        # Debugging: Check if the POST request has the right data
+        print(f"Username: {username}, Password: {password}")  # To see the input in the console
+
+        # Authenticate the user
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            # If authentication is successful, log the user in and redirect to the 'user_view'
+            login(request, user)
+            print("Login successful")  # Debugging: This will confirm successful login
+            return redirect('user_view')  # Replace 'user_view' with the actual name of the view
+
+        else:
+            # If authentication fails, show an error message and stay on the login page
+            print("Login failed: Invalid credentials")  # Debugging: This will confirm failed login
+            messages.error(request, 'Invalid username or password.')  # Error message to show in the template
+            return render(request, 'registration/login.html')  # Stay on the login page
+
+    return render(request, 'registration/login.html')
+def logout_view(request):
+    logout(request)
+    return render(request, 'registration/login.html') # Redirect to login page
+
+@login_required
+def user_view(request):
+    users = CustomUser.objects.all()
+    return render(request, 'index.html', {'users': users})
+
 
 def create_user(request):
     if request.method == 'POST':
@@ -48,39 +79,3 @@ def user_delete(request, pk):
         user.delete()
         return redirect('user_view')
     return render(request, 'user_confirm_delete.html', {'user': user})
-
-
-def login_view(request):
-    if request.method == 'POST':
-        # Get username and password from the form
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        # Debugging: Check if the POST request has the right data
-        print(f"Username: {username}, Password: {password}")  # To see the input in the console
-
-        # Authenticate the user
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            # If authentication is successful, log the user in and redirect to the 'user_view'
-            login(request, user)
-            print("Login successful")  # Debugging: This will confirm successful login
-            return redirect('user_view')  # Replace 'user_view' with the actual name of the view
-
-        else:
-            # If authentication fails, show an error message and stay on the login page
-            print("Login failed: Invalid credentials")  # Debugging: This will confirm failed login
-            messages.error(request, 'Invalid username or password.')  # Error message to show in the template
-            return render(request, 'registration/login.html')  # Stay on the login page
-
-    return render(request, 'registration/login.html')
-def logout_view(request):
-    logout(request)
-    return redirect('login')  # Redirect to login page
-
-
-@login_required
-def user_view(request):
-    # Your existing code to list users
-    ...
