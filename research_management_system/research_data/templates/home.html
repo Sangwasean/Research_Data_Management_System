@@ -17,7 +17,8 @@
                 <li><a href="">Home</a></li>
                 <li><a href="">Research Data</a></li>
                 <li><a href="">Reports</a></li>
-                <li><a href="">Users</a></li>
+                <li><a href="{% url 'user_view' %}">Users</a></li>
+                <li><a href="">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -25,7 +26,7 @@
         <section>
             <h2>Your Research, Simplified</h2>
             <p>Manage your research data efficiently with our easy-to-use platform.</p>
-            <button onclick="location.href=''">Get Started</button>
+            <button onclick="location.href='{% url 'create_user' %}'">Get Started</button>
         </section>
     </main>
     <footer>

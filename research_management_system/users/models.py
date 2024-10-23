@@ -10,6 +10,8 @@ class User(models.Model):
         return self.name
 
 class CustomUser(AbstractUser):
+    name = models.CharField(max_length=255,default='user')
+    email = models.EmailField(unique=True)
     role = models.CharField(max_length=30, default='user')
 
     def __str__(self):

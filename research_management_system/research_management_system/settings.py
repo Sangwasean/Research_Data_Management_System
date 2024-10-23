@@ -20,6 +20,10 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -28,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Your custom apps
     'users',
@@ -105,6 +110,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+SITE_ID = 1
+
 
 # Media files (uploaded files such as research data)
 MEDIA_URL = '/media/'
