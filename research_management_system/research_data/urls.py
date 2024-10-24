@@ -4,8 +4,10 @@ from .views import home
 
 urlpatterns = [
     path('', home, name='home'),
-    path('<int:pk>/', views.research_project_detail, name='project_detail'),
-    path('<int:pk>/upload/', views.upload_data, name='upload_data'),
-    path('users/', include('users.urls')),  # Ensure users app URLs are included
-    path('accounts/', include('django.contrib.auth.urls')),  # Include authentication URLs
+    path('users/', include('users.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('create/', views.create_research_project, name='create_research_project'),
+    path('update/<int:pk>/', views.update_research_project, name='update_research_project'),
+    path('delete/<int:pk>/', views.delete_research_project, name='delete_research_project'),
+    path('projects/', views.view_research_projects, name='research_projects_list'),
 ]

@@ -20,22 +20,22 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        # Debugging: Check if the POST request has the right data
-        print(f"Username: {username}, Password: {password}")  # To see the input in the console
+
+        print(f"Username: {username}, Password: {password}")
 
         # Authenticate the user
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            # If authentication is successful, log the user in and redirect to the 'user_view'
+
             login(request, user)
-            print("Login successful")  # Debugging: This will confirm successful login
-            return redirect('user_view')  # Replace 'user_view' with the actual name of the view
+            print("Login successful")
+            return redirect('user_view')
 
         else:
-            # If authentication fails, show an error message and stay on the login page
-            print("Login failed: Invalid credentials")  # Debugging: This will confirm failed login
-            messages.error(request, 'Invalid username or password.')  # Error message to show in the template
+
+            print("Login failed: Invalid credentials")
+            messages.error(request, 'Invalid username or password.')
 
     return redirect('http://127.0.0.1:8000/accounts/login/')
 def logout_view(request):
@@ -68,12 +68,12 @@ def create_user(request):
 def user_update(request, pk):
     user = get_object_or_404(CustomUser, pk=pk)  # Fetch the user based on the primary key
     if request.method == "POST":
-        form = UserForm(request.POST, instance=user)  # Bind form to the user instance
+        form = UserForm(request.POST, instance=user)
         if form.is_valid():
-            form.save()  # Save the updated instance
-            return redirect('user_view')  # Redirect to user list after saving
+            form.save()
+            return redirect('user_view')
     else:
-        form = UserForm(instance=user)  # If GET, create a form with the user instance
+        form = UserForm(instance=user)
     return render(request, 'user_form.html', {'form': form})
 def user_delete(request, pk):
     user = get_object_or_404(CustomUser, pk=pk)

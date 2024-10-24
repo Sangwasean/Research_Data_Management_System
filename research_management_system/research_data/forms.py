@@ -4,7 +4,10 @@ from .models import ResearchProject, ResearchData
 class ResearchProjectForm(forms.ModelForm):
     class Meta:
         model = ResearchProject
-        fields = ['title', 'description', 'lead_researcher', 'start_date', 'end_date']
+        fields = ['title', 'field', 'summary', 'location', 'date']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+        }
 
 class ResearchDataForm(forms.ModelForm):
     class Meta:
