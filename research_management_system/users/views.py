@@ -36,12 +36,14 @@ def login_view(request):
             # If authentication fails, show an error message and stay on the login page
             print("Login failed: Invalid credentials")  # Debugging: This will confirm failed login
             messages.error(request, 'Invalid username or password.')  # Error message to show in the template
-            return render(request, 'registration/login.html')  # Stay on the login page
 
-    return render(request, 'registration/login.html')
+    return redirect('http://127.0.0.1:8000/accounts/login/')
 def logout_view(request):
+    user = request.user
+    user.is_active = False
+    user.save()
     logout(request)
-    return render(request, 'registration/login.html') # Redirect to login page
+    return redirect('create_user')
 
 @login_required
 def user_view(request):
