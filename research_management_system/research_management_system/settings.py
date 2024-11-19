@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'users',
     'research_data',
     'reports',
+    'analytics',
 
     # Third-party packages (if needed)
     # e.g., 'rest_framework' for API support, 'django_extensions' for management utilities, etc.

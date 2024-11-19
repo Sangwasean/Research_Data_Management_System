@@ -6,5 +6,5 @@ urlpatterns = [
     path('', include('research_data.urls')),
     path('reports/', include('reports.urls')),
     path('users/', include('users.urls')),
-    # Link the home view to the root URL
+    path('analytics/', include('analytics.urls')),
 ]

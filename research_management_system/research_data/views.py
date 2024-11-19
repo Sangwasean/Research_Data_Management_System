@@ -11,6 +11,7 @@ from django.contrib import messages
 def home(request):
     return render(request, 'home.html')
 
+
 @login_required
 def view_research_projects(request):
     research_projects = ResearchProject.objects.filter(user=request.user)
@@ -25,7 +26,7 @@ def create_research_project(request):
             research_project.user = request.user
             research_project.save()
             messages.success(request, 'Research project created successfully!')
-            return redirect('view_research_project')
+            return redirect('research_projects_list')
     else:
         form = ResearchProjectForm()
     return render(request, 'research_form.html', {'form': form})
@@ -51,5 +52,6 @@ def delete_research_project(request, pk):
     if request.method == 'POST':
         research_project.delete()
         messages.success(request, 'Research project deleted successfully!')
-        return redirect('view_research_projects')
+        return redirect('research_projects_list')
     return render(request, 'research_confirm_delete.html', {'research_project': research_project})
+
